@@ -3,6 +3,7 @@ package com.darkmage530.katas.eab.brownbag.bowling.first;
 import com.darkmage530.katas.eab.brownbag.bowling.first.Game;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,6 +15,12 @@ public class GameTest {
     @Before
     public void setup() {
         this.game = new Game();
+    }
+
+    private void simulateXRolls(int rolls,  int pins) {
+        for (int i =0; i < rolls; i++) {
+            game.roll(pins);
+        }
     }
 
     @Test
@@ -40,6 +47,13 @@ public class GameTest {
         assertEquals(0, game.score());
     }
 
+    @Test
+    public void rollEmptyGame() {
+        simulateXRolls(21, 0);
+        assertEquals(0, game.score());
+    }
+
+    @Ignore
     @Test
     public void rollASpare() {
         game.roll(5);

@@ -1,10 +1,7 @@
-package com.darkmage530.hackerrank.julyContest;
+package com.darkmage530.hackerrank.july13Contest;
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
 import java.math.*;
-import java.util.regex.*;
 
 /**
  * User: Jon

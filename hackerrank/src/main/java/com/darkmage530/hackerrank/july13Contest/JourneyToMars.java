@@ -1,4 +1,4 @@
-package com.darkmage530.hackerrank.julyContest;
+package com.darkmage530.hackerrank.july13Contest;
 
 import java.util.Scanner;
 
