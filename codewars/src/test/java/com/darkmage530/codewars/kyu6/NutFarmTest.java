@@ -16,7 +16,6 @@ public class NutFarmTest {
         }
 
         return array;
-
     }
 
     @Test

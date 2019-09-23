@@ -1,28 +1,35 @@
-package com.darkmage530.codewars.kyu6;
+package com.darkmage530.codewars.kyu5;
 
-public class NutFarm {
+import com.darkmage530.codewars.kyu6.NutFarm;
+
+public class NutFarm2 {
 
     private static final char NUT = 'o', // a nut
-    RIGHT_BRANCH = '\\', // branch. A nut hitting this branch bounces right
-    LEFT_BRANCH = '/', // branch. A nut hitting this branch bounces left
-    STUCK_BRANCH = '_', // branch. A nut hitting this branch gets stuck in the tree
-    LEAF = '.', // leaves, which have no effect on falling nuts
-    TRUNK = '|', // tree trunk, which has no effect on falling nuts
-    AIR = ' '; // empty space, which has no effect on falling nuts
+            RIGHT_BRANCH = '\\', // branch. A nut hitting this branch bounces right
+            LEFT_BRANCH = '/', // branch. A nut hitting this branch bounces left
+            STUCK_BRANCH = '_', // branch. A nut hitting this branch gets stuck in the tree
+            LEAF = '.', // leaves, which have no effect on falling nuts
+            TRUNK = '|', // tree trunk, which has no effect on falling nuts
+            AIR = ' '; // empty space, which has no effect on falling nuts
 
     public static void main(String[] args) {
         char[][] tree = {
-                {'.','o','.','o','o','o','o','o','o','.','o','.','o','.','o','o','o','o','o','o','.'}, 
+                {'.','o','.','o','o','o','o','o','o','.','o','.','o','.','o','o','o','o','o','o','.'},
                 {'.','.','\\','.','\\','.','.','.','/','.','.','\\','.','.','.','/','.','.','\\','.','.'}
         };
 
-        int[] finalNuts = NutFarm.shakeTree(tree);
+        int[] finalNuts = NutFarm2.shakeTree(tree);
 
         int[] solution = new int[] {0,1,0,1,0,2,1,2,0,0,1,0,1,0,2,0,1,1,0,2,0};
     }
 
+//    public static int[] shakeTree(final char[][] tree) {
+//        // Your code here
+//        return new int[tree[0].length];
+//    }
+
     public static int[] shakeTree(final char[][] tree) {
-        NutFarm nutFarm = new NutFarm();
+        NutFarm2 nutFarm = new NutFarm2();
 
         int treeHeight = tree.length;
         int treeWidth = tree[0].length;
@@ -33,14 +40,7 @@ public class NutFarm {
                 char[] nextRow = tree[row+1];
                 for (int column = 0; column < treeWidth; column++) {
                     if (nutLocation[column] > 0) { //we found a nut(s)
-                          char belowNut = nextRow[column];
-                          if (belowNut == RIGHT_BRANCH) {
-                              nutLocation = nutFarm.moveNutRight(column, nutLocation);
-                          } else if (belowNut == LEFT_BRANCH) {
-                              nutLocation = nutFarm.moveNutLeft(column, nutLocation);
-                          } else if (belowNut == STUCK_BRANCH) {
-                              nutLocation = nutFarm.nutStuck(column, nutLocation);
-                          }
+                        nutLocation = nutFarm.nutAction(nutLocation, nextRow, column);
                     }
                 }
             }
@@ -49,6 +49,26 @@ public class NutFarm {
             }
         }
 
+        return nutLocation;
+    }
+
+    int[] nutAction(int[] nutLocation, char[] belowNuts, int columnIndex) {
+        char belowNut = belowNuts[columnIndex];
+        if ((belowNut == RIGHT_BRANCH &&
+                belowNuts[columnIndex+1] == LEFT_BRANCH)
+                || (belowNut == LEFT_BRANCH &&
+                belowNuts[columnIndex-1] == RIGHT_BRANCH)) {
+            nutStuck(columnIndex, nutLocation);
+        } else if (belowNut == RIGHT_BRANCH) {
+            nutLocation = moveNutRight(columnIndex, nutLocation);
+            nutLocation = nutAction(nutLocation, belowNuts, ++columnIndex);
+        } else if (belowNut == LEFT_BRANCH) {
+            nutLocation = moveNutLeft(columnIndex, nutLocation);
+            nutLocation = nutAction(nutLocation, belowNuts, --columnIndex);
+        } else if (belowNut == STUCK_BRANCH) {
+            nutLocation = nutStuck(columnIndex, nutLocation);
+
+        }
         return nutLocation;
     }
 
