@@ -1,8 +1,17 @@
 package com.darkmage530.codewars.kyu7;
 
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
+
 public class TvRemote {
 
+    public static void main(String[] args) {
+        TvRemote.tvRemote("hello");
+    }
+
     Cursor cursor = new Cursor();
+
     private static final char[][] remoteLayout = {
             {'a','b','c','d','e','1','2','3'},
             {'f','g','h','i','j','4','5','6'},
@@ -11,22 +20,48 @@ public class TvRemote {
             {'u','v','w','x','y','z','_','/'}
     };
 
-    public static void main(String[] args) {
-        TvRemote.tvRemote("hello");
+    TvRemote() {
+        int y = 0;
+        for (char[] row : remoteLayout) {
+            int x = 0;
+            for (char character : row) {
+                coordinateLookup.put(character, new Point(x,y));
+                x++;
+            }
+            y++;
+        }
     }
+
+    private Map<Character, Point> coordinateLookup = new HashMap<>();
 
     public static int tvRemote(final String word) {
         TvRemote tvRemote = new TvRemote();
 
-        return 1;
+        return tvRemote.getCursorMoves(word);
+    }
+
+    int getCursorMoves(String word) {
+        int moves = 0;
+        for (char character : word.toCharArray()) {
+            Point point = findNextCharacter(character);
+            Point currentPoint = cursor.getCursor();
+            while (!currentPoint.equals(point)) {
+                cursor.moveCursor(point);
+                currentPoint = cursor.getCursor();
+                moves++;
+            }
+            select();
+            moves++;
+        }
+        return moves;
     }
 
     char select() {
         return cursor.select();
     }
 
-    void findNextCharacter() {
-
+    Point findNextCharacter(char character) {
+        return coordinateLookup.get(character);
     }
 
 
@@ -39,6 +74,22 @@ public class TvRemote {
             return remoteLayout[verticalPosition][horizontalPosition];
         }
 
+        Point getCursor() {
+            return new Point(horizontalPosition, verticalPosition);
+        }
+
+        void moveCursor(Point point) {
+            if (point.x > horizontalPosition) {
+                moveRight();
+            } else if (point.x < horizontalPosition) {
+                moveLeft();
+            } else if (point.y > verticalPosition) {
+                moveDown();
+            } else if (point.y < verticalPosition) {
+                moveUp();
+            }
+        }
+
         void moveUp() {
             if (verticalPosition != 0) {
                 verticalPosition--;
@@ -49,7 +100,6 @@ public class TvRemote {
             if (verticalPosition != remoteLayout.length-1) {
                 verticalPosition++;
             }
-
         }
 
         void moveLeft() {

@@ -8,10 +8,10 @@ import static org.junit.Assert.*;
 
 public class BirdMountainTest {
 
-    private void printMountain(char[][] mountain) {
-        for (char[] row : mountain) {
+    private void printMountain(int[][] mountain) {
+        for (int[] row : mountain) {
             StringBuilder sb = new StringBuilder();
-            for (char x : row){
+            for (int x : row){
                 sb.append(x);
             }
             System.out.println(sb.toString());
@@ -24,11 +24,11 @@ public class BirdMountainTest {
                 "^^".toCharArray(),
                 "^^".toCharArray()
         };
-        char[][] mountainHeight = {
-                "00".toCharArray(),
-                "00".toCharArray()
+        int[][] mountainHeight = {
+                {1, 1},
+                {1, 1}
         };
-        char[][] result = BirdMountain.zeroOut('0', mountain);
+        int[][] result = BirdMountain.zeroOut(mountain);
         printMountain(result);
         assertTrue(Arrays.deepEquals(mountainHeight, result));
     }
@@ -38,16 +38,26 @@ public class BirdMountainTest {
         char[][] mountain = {
                 "^^^".toCharArray(),
                 "^ ^".toCharArray(),
-                "^^^".toCharArray()
+                "  ^".toCharArray()
         };
-        char[][] mountainHeight = {
-                "000".toCharArray(),
-                "0 0".toCharArray(),
-                "000".toCharArray()
+        int[][] mountainHeight = {
+                {1,1,1},
+                {1,0,1},
+                {0,0,1}
         };
-        char[][] result = BirdMountain.zeroOut('0', mountain);
+        int[][] result = BirdMountain.zeroOut(mountain);
         printMountain(result);
         assertTrue(Arrays.deepEquals(mountainHeight, result));
+    }
+
+    @Test
+    public void allZeroes() {
+        char[][] mountain = {
+                "      ".toCharArray(),
+                "      ".toCharArray(),
+                "      ".toCharArray(),
+        };
+        assertEquals(0, BirdMountain.peakHeight(mountain));
     }
 
     @Test

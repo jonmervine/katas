@@ -1,10 +1,9 @@
 package com.darkmage530.codewars.kyu7;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TvRemoteTest {
 
@@ -63,13 +62,35 @@ public class TvRemoteTest {
         assertEquals('a', tvRemote.select());
     }
 
-    @Ignore
+    @Test
+    public void testXRowMoves() {
+        int moves = tvRemote.getCursorMoves("c");
+        assertEquals(3, moves);
+    }
+
+    @Test
+    public void testYColumnMoves() {
+        int moves = tvRemote.getCursorMoves("p");
+        assertEquals(4, moves);
+    }
+
+    @Test
+    public void testMultipleMoves() {
+        int moves = tvRemote.getCursorMoves("t");
+        assertEquals(8, moves);
+    }
+
+    @Test
+    public void testTwoLetters() {
+        int moves = tvRemote.getCursorMoves("ag");
+        assertEquals(4, moves);
+    }
+
     @Test
     public void example() {
         assertEquals(36, tvRemote.tvRemote("codewars"));
     }
 
-    @Ignore
     @Test
     public void misc() {
         assertEquals(16, tvRemote.tvRemote("does"));
