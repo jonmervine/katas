@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class SnakesAndLadders {
 
-    Map<Integer, Integer> coordinates = new HashMap<>(){{
+    Map<Integer, Integer> coordinates = new HashMap<Integer, Integer>(){{
         put(2, 38);
         put(7, 14);
         put(8, 31);
