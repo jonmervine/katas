@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 
 public class PhoneDirectory {
 
-    public static final String NAME_PATTERN = "(?<=<).*?(?=>)";
-    public static final String NUMBER_PATTERN = "\\+\\d{1,2}-\\d{3}-\\d{3}-\\d{4}";
-    public static final String PRESERVED_CHARACTERS = "[^a-zA-Z0-9. -]";
-    public static final String MULTIPLE_SPACES = " +";
+    private static final String NAME_PATTERN = "(?<=<).*?(?=>)";
+    private static final String NUMBER_PATTERN = "\\+\\d{1,2}-\\d{3}-\\d{3}-\\d{4}";
+    private static final String PRESERVED_CHARACTERS = "[^a-zA-Z0-9. -]";
+    private static final String MULTIPLE_SPACES = " +";
 
     public static void main(String[] args) {
         phone("", "");
@@ -23,7 +23,7 @@ public class PhoneDirectory {
         return phoneDirectory.findInfo(strng, num);
     }
 
-    public String findInfo(String addressBook, String lookupPhoneNumber) {
+    private String findInfo(String addressBook, String lookupPhoneNumber) {
         StringReader sr = new StringReader(addressBook);
         BufferedReader br = new BufferedReader(sr);
 
@@ -45,7 +45,7 @@ public class PhoneDirectory {
         return addressEntry.returnFormattedEntry();
     }
 
-    public String retrieveName(String addressLine) {
+    String retrieveName(String addressLine) {
         Pattern pattern = Pattern.compile(NAME_PATTERN);
         Matcher matcher = pattern.matcher(addressLine);
         matcher.find();
@@ -54,7 +54,7 @@ public class PhoneDirectory {
         return matcher.group().trim();
     }
 
-    public String retrieveAddress(String addressLine) {
+    String retrieveAddress(String addressLine) {
         String modifiedAddressLine = addressLine.replaceAll(NAME_PATTERN, "");
         modifiedAddressLine = modifiedAddressLine.replaceAll(NUMBER_PATTERN, "");
         modifiedAddressLine = modifiedAddressLine.replaceAll(PRESERVED_CHARACTERS, " ");
@@ -68,19 +68,19 @@ public class PhoneDirectory {
         private String name = "";
         private String address = "";
 
-        public void updatePhoneNumber(String phoneNumber) {
+        private void updatePhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
 
-        public void updateName(String name) {
+        private void updateName(String name) {
             this.name = name;
         }
 
-        public void updateAddress(String address) {
+        private void updateAddress(String address) {
             this.address = address;
         }
 
-        public String returnFormattedEntry() {
+        private String returnFormattedEntry() {
             return "Phone => " + phoneNumber + ", Name => " + name + ", Address => " + address;
         }
     }
