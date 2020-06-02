@@ -4,6 +4,9 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://www.codewars.com/kata/tv-remote
+ */
 public class TvRemote {
 
     public static void main(String[] args) {

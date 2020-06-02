@@ -2,6 +2,9 @@ package com.darkmage530.codewars.kyu5;
 
 import java.awt.*;
 
+/**
+ * https://www.codewars.com/kata/5c09ccc9b48e912946000157
+ */
 public class BirdMountain {
 
     private static final char BASE_CHARACTER = '^';

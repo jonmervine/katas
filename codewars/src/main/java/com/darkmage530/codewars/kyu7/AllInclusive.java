@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * https://www.codewars.com/kata/5700c9acc1555755be00027e
+ */
 public class AllInclusive {
 
     public static boolean containAllRots(String strng, List<String> arr) {

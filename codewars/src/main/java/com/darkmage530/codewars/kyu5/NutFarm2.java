@@ -1,5 +1,8 @@
 package com.darkmage530.codewars.kyu5;
 
+/**
+ * https://www.codewars.com/kata/59b24a2158ef58966e00005e
+ */
 public class NutFarm2 {
 
     private static final char NUT = 'o', // a nut

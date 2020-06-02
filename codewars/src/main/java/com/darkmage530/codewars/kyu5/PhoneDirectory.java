@@ -7,6 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * https://www.codewars.com/kata/56baeae7022c16dd7400086e
+ */
 public class PhoneDirectory {
 
     private static final String NAME_PATTERN = "(?<=<).*?(?=>)";

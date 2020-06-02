@@ -3,65 +3,12 @@ package com.darkmage530.codewars.kyu4;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
 public class HowManyNumbersTest {
-
-    @Test
-    public void readfromFile() throws IOException {
-        File dev = new File("C:\\Users\\jmervine\\dev ad_24.csv");
-        File prod = new File("C:\\Users\\jmervine\\prod ad_24.csv");
-        FileInputStream devInputStream = null;
-        FileInputStream prodInputStream = null;
-        Scanner devScanner = null;
-        Scanner prodScanner = null;
-        try {
-            devInputStream = new FileInputStream(dev);
-            prodInputStream = new FileInputStream(prod);
-            devScanner = new Scanner(devInputStream, "UTF-8");
-            prodScanner = new Scanner(prodInputStream, "UTF-8");
-
-            boolean notDone = true;
-            while (notDone) {
-                if (devScanner.hasNextLine()) {
-
-                }
-                String line = devScanner.nextLine();
-                System.out.println(line);
-            }
-            // note that Scanner suppresses exceptions
-            if (devScanner.ioException() != null) {
-                throw devScanner.ioException();
-            }
-        } finally {
-            if (prodInputStream != null) {
-                prodInputStream.close();
-            }
-            if (devScanner != null) {
-                devScanner.close();
-            }
-        }
-    }
-
-    @Test
-    public void derpderp() {
-        List<String> derp = Lists.newArrayList();
-        derp.add("hello");
-        derp.add("poi");
-        derp.add("akko");
-
-        List<String> derp2 = derp.subList(0, derp.size());
-        derp2.remove(1);
-        assertEquals(2, derp2.size());
-        assertEquals(3, derp.size());
-    }
 
     @Test
     public void singleDigitExamples() {

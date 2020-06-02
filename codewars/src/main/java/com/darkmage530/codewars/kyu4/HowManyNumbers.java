@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * https://www.codewars.com/kata/5877e7d568909e5ff90017e6
+ */
 public class HowManyNumbers {
 
     public static List<Long> findAll(int sumDigits, int numDigits) {

@@ -3,6 +3,9 @@ package com.darkmage530.codewars.kyu5;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * https://www.codewars.com/kata/55c6126177c9441a570000cc
+ */
 public class WeightForWeight {
 
     public static void main(String[] args) {
