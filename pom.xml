@@ -14,6 +14,7 @@
         <module>reddit-daily-challenge</module>
         <module>hackerrank</module>
         <module>generic-katas</module>
+        <module>advent-of-code</module>
     </modules>
 
     <properties>
