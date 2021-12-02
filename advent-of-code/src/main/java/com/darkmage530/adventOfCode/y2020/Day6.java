@@ -12,7 +12,7 @@ public class Day6 {
     public static void main(String[] args) {
         Day6 day6 = new Day6();
 
-        List<String> inputFromFile = Utilities.getStringFromFile("day6input.txt");
+        List<String> inputFromFile = Utilities.getStringFromFile("2020/day6input.txt");
         List<Set<Character>> allAnswers = day6.parseAndCombineAnswers(inputFromFile);
         int count = 0;
         for (Set<Character> groupsAnswers : allAnswers) {

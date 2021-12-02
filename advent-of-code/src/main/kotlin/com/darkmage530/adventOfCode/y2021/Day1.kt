@@ -7,7 +7,7 @@ class Day1 {
     fun day1() {
         var previous = Int.MAX_VALUE
         var totalGreater = 0
-        File("advent-of-code/src/main/resources/2021Day1.txt").forEachLine {
+        File("advent-of-code/src/main/resources/Day1.txt").forEachLine {
             if (Integer.parseInt(it) > previous)
                 totalGreater++
             previous = Integer.parseInt(it)
@@ -18,7 +18,7 @@ class Day1 {
     fun part2() {
 
 //        val depths: List<Int> = input.split("\n").map { Integer.parseInt(it) }
-        val depths: List<Int> = File("advent-of-code/src/main/resources/2021Day1.txt").readLines().map { Integer.parseInt(it) }
+        val depths: List<Int> = File("advent-of-code/src/main/resources/Day1.txt").readLines().map { Integer.parseInt(it) }
         var total = 0
         var prevSum = Int.MAX_VALUE
         for (i in 0..(depths.size - 3)) {
