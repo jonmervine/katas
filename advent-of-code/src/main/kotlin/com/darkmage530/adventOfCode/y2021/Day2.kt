@@ -40,7 +40,7 @@ class Day2 {
 }
 
 fun main() {
-//    val initialParsedInput = parseTestInput(testInput)
+//    val initialParsedInput = getTestInputLines(testInput)
     val initialParsedInput = getTestFileLines("Day2.txt")
     Day2().part1(initialParsedInput)
     Day2().part2(initialParsedInput)
