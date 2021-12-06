@@ -1,6 +1,7 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
+import com.darkmage530.adventOfCode.getTestInputLines
 
 class Day2 {
     fun part1(initialParsedInput: List<String>) {
@@ -40,8 +41,8 @@ class Day2 {
 }
 
 fun main() {
-//    val initialParsedInput = getTestInputLines(testInput)
-    val initialParsedInput = getTestFileLines("Day2.txt")
+    val initialParsedInput = getTestInputLines(testInput)
+//    val initialParsedInput = getTestFileLines("Day2.txt")
     Day2().part1(initialParsedInput)
     Day2().part2(initialParsedInput)
 }
