@@ -11,7 +11,7 @@ class Day12 {
         if (this.contains(a))
             this[a]!!.add(b)
         else
-            this[a] = mutableListOf(b)// as LinkedList<Cave>
+            this[a] = mutableListOf(b)
     }
     private fun HashMap<Cave, MutableList<Cave>>.findName(name: String): Cave {
         return this.entries.first { it.key.name == name }.key
@@ -19,13 +19,17 @@ class Day12 {
 
     private val allPaths: MutableSet<List<Cave>> = mutableSetOf()
 
-    fun part1(testData: List<String>) {
+    private fun createAdjacency(testData: List<String>) {
         testData.map { line -> line.split("-") }.forEach { pair ->
             val left = Cave(pair[0], pair[0].first().isLowerCase());
             val right = Cave(pair[1], pair[1].first().isLowerCase())
             adjacency.appendOrPut(left, right)
             adjacency.appendOrPut(right, left)
         }
+    }
+
+    fun part1(testData: List<String>) {
+        createAdjacency(testData)
 
         val start = adjacency.findName("start")
         search(start, mutableListOf())
@@ -51,12 +55,7 @@ class Day12 {
     }
 
     fun part2(testData: List<String>) {
-        testData.map { line -> line.split("-") }.forEach { pair ->
-            val left = Cave(pair[0], pair[0].first().isLowerCase());
-            val right = Cave(pair[1], pair[1].first().isLowerCase())
-            adjacency.appendOrPut(left, right)
-            adjacency.appendOrPut(right, left)
-        }
+        createAdjacency(testData)
 
             println(adjacency)
             val start = adjacency.findName("start")
@@ -68,7 +67,6 @@ class Day12 {
 
     private fun search2(current: Cave, currentPath: MutableList<Cave>, passedSmallCave: Boolean) {
         var additionalSmallCave = passedSmallCave
-//        println("additional: $additionalSmallCave and currentPath $currentPath and currentCave $current")
         if (currentPath.contains(current) && current.isSmall) {
             additionalSmallCave = false
         }
@@ -94,8 +92,6 @@ class Day12 {
             else
                 true
         }
-
-//        println(edges)
 
         edges.forEach { nextCave -> search2(nextCave, currentPath, additionalSmallCave);  }
 
