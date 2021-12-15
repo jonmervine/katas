@@ -2,6 +2,7 @@ package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
 import com.darkmage530.adventOfCode.getTestInputLines
+import kotlin.math.abs
 
 class Day13 {
     fun part1(testData: List<String>) {
@@ -64,32 +65,38 @@ class Day13 {
             val updatedPoints: MutableList<Pair<Int, Int>> = mutableListOf()
             val foldOn = fold.second
             if (fold.first == "y") {
-                points.forEach { point -> var newPoint = point; if (point.second > foldOn) newPoint = Pair(point.first, maxY - point.second); updatedPoints.add(newPoint) }
-                maxY /= 2
+                val leftSize = foldOn
+                val rightSize = maxY - foldOn
+                val newSize = if (leftSize < rightSize) rightSize else leftSize
+                points.forEach { point ->
+                    val distanceFromFold = abs(point.second - foldOn)
+                    val newY = newSize - distanceFromFold
+                    var newPoint = Pair(point.first, newY);
+                    updatedPoints.add(newPoint)
+                }
+                maxY = newSize - 1
             } else {
-                points.forEach { point -> var newPoint = point; if (point.first > foldOn) newPoint = Pair(maxX - point.first, point.second); updatedPoints.add(newPoint) }
-                maxX /= 2
+                val leftSize = foldOn
+                val rightSize = maxX - foldOn
+                val newSize = if (leftSize < rightSize) rightSize else leftSize
+                points.forEach { point ->
+                    val distanceFromFold = abs(point.first - foldOn)
+                    val newX = newSize - distanceFromFold
+                    var newPoint = Pair(newX, point.second);
+                    updatedPoints.add(newPoint)
+                }
+                maxX = newSize - 1
             }
             points = updatedPoints.toList() as MutableList<Pair<Int, Int>>
         }
 
-        val graph: MutableList<MutableList<String>> = MutableList(maxY) { MutableList(maxX) {"."} }
+        println("$maxX,$maxY")
+        val graph: MutableList<MutableList<String>> = MutableList(maxY +1) { MutableList(maxX + 1) {"."} }
         points.forEach { point ->
             graph[point.second][point.first] = "#"
         }
 
-        graph.forEach { println(it)}
-
-//        println("$maxX,$maxY")
-//        if (firstFold.first == "y") {
-//            val uniquePoints = updatedPoints.toSet().size
-//            val totalPoints = maxX * maxY/2
-//            println("uniquePoints: $uniquePoints, totalPoints: $totalPoints, minus=${totalPoints - uniquePoints}")
-//        } else {
-//            val uniquePoints = updatedPoints.toSet().size
-//            val totalPoints = maxY * maxX/2
-//            println("uniquePoints: $uniquePoints, totalPoints: $totalPoints, minus=${totalPoints - uniquePoints}")
-//        }
+        graph.forEach { println(it.joinToString(""))}
     }
 }
 
