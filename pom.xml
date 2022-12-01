@@ -50,4 +50,53 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <jdk>1.8</jdk>
+                <property>
+                    <name>mavenVersion</name>
+                    <value>2.0.3</value>
+                </property>
+                <file>
+                    <exists>${basedir}/file2.properties</exists>
+                    <missing>${basedir}/file1.properties</missing>
+                </file>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>codehausSnapshots</id>
+                    <name>Codehaus Snapshots</name>
+                    <releases>
+                        <enabled>false</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>warn</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <url>https://snapshots.maven.codehaus.org/maven2</url>
+                    <layout>default</layout>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>myPluginRepo</id>
+                    <name>My Plugins repo</name>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://maven-central-eu....com/maven2/</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
 </project>

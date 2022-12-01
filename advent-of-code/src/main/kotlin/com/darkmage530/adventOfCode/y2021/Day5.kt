@@ -71,7 +71,7 @@ class Day5 {
 
 fun main() {
 //    val inputText = getTestInputLines(testInput)
-    val inputText = getTestFileLines("Day5.txt")
+    val inputText = getTestFileLines("2021/Day5.txt")
     Day5().part1(inputText)
     Day5().part2(inputText)
 }
