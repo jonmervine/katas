@@ -23,12 +23,12 @@ class Day1Test : StringSpec({
 
     "part1" {
         day1.part1(getTestInputLines(testInput))
-            .shouldBe(24000)
+            .shouldBe("24000")
     }
 
     "part2" {
         day1.part2(getTestInputLines(testInput))
-            .shouldBe(45000)
+            .shouldBe("45000")
     }
 
 })
