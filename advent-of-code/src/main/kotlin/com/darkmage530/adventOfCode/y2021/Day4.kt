@@ -1,7 +1,6 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
-import com.darkmage530.adventOfCode.getTestInputLines
 
 class Board(var sumOfBoard: Int = 0) {
     private val rows: MutableList<String> = mutableListOf()
@@ -139,7 +138,7 @@ class Day4 {
 
 fun main() {
 //    val testInput = getTestInputLines(testInput)
-    val testInput = getTestFileLines("2021/Day4.txt")
+    val testInput = getTestFileLines("y2021/Day4.txt")
     Day4().part1(testInput)
     Day4().part2(testInput)
 }

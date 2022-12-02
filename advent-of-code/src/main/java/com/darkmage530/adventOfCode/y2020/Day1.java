@@ -16,12 +16,12 @@ public class Day1 {
 //        Pair<Integer, Integer> valuesForTarget = day1.findTargetEntries(Stream.of(5, 10, 100, 5500, 3000, 2010).collect(Collectors.toList()), 2020);
 //        valuesForTarget.getKey();
 
-        Map.Entry<Integer, Integer> valuesForTarget = day1.findTargetEntries(Utilities.getIntsFromFile("2020/day1input.txt"), 2020);
+        Map.Entry<Integer, Integer> valuesForTarget = day1.findTargetEntries(Utilities.getIntsFromFile("y2020/Day1.txt"), 2020);
         System.out.println("Answer: " + valuesForTarget.getKey() + ", " + valuesForTarget.getValue());
         int product = valuesForTarget.getKey() * valuesForTarget.getValue();
         System.out.println("Product: " + product);
 
-        int threeProduct = day1.findTargetEntriesWithThree(Utilities.getIntsFromFile("2020/day1input.txt"), 2020);
+        int threeProduct = day1.findTargetEntriesWithThree(Utilities.getIntsFromFile("y2020/Day1.txt"), 2020);
         System.out.println("ThreeProduct: " + threeProduct);
     }
 

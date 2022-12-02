@@ -1,7 +1,6 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
-import com.darkmage530.adventOfCode.getTestInputLines
 import java.util.LinkedList
 import kotlin.streams.toList
 
@@ -83,7 +82,7 @@ class Day9 {
 
 fun main() {
 //    val inputData = getTestInputLines(testData)
-    val inputData = getTestFileLines("2021/Day9.txt")
+    val inputData = getTestFileLines("y2021/Day9.txt")
     Day9().part1(inputData)
     Day9().part2(inputData)
 }

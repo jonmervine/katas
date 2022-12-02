@@ -1,7 +1,6 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
-import com.darkmage530.adventOfCode.getTestInputLines
 import kotlin.math.abs
 
 class Day5 {
@@ -71,7 +70,7 @@ class Day5 {
 
 fun main() {
 //    val inputText = getTestInputLines(testInput)
-    val inputText = getTestFileLines("2021/Day5.txt")
+    val inputText = getTestFileLines("y2021/Day5.txt")
     Day5().part1(inputText)
     Day5().part2(inputText)
 }

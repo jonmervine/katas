@@ -11,7 +11,7 @@ public class Day5 {
     public static void main(String[] args) {
         Day5 day5 = new Day5();
 
-        List<String> planeSeats = Utilities.getStringFromFile("2020/day5input.txt");
+        List<String> planeSeats = Utilities.getStringFromFile("y2020/Day5.txt");
 
         Set<Integer> seatSet = day5.createSet();
 

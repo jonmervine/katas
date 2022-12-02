@@ -1,7 +1,6 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
-import com.darkmage530.adventOfCode.getTestInputLines
 
 class Day12 {
 
@@ -103,7 +102,7 @@ fun main() {
 //    val testData = getTestInputLines(testInput1)
 //    val testData = getTestInputLines(testInput2)
 //    val testData = getTestInputLines(testInput3)
-    val testData = getTestFileLines("2021/Day12.txt")
+    val testData = getTestFileLines("y2021/Day12.txt")
 
 //    Day12().part1(testData)
     Day12().part2(testData)

@@ -1,7 +1,6 @@
 package com.darkmage530.adventOfCode.y2021
 
 import com.darkmage530.adventOfCode.getTestFileLines
-import com.darkmage530.adventOfCode.getTestInputLines
 import java.math.BigInteger
 
 class Day10 {
@@ -62,7 +61,7 @@ class Day10 {
 
 fun main() {
 //    val testData = getTestInputLines(testInput)
-    val testData = getTestFileLines("2021/Day10.txt")
+    val testData = getTestFileLines("y2021/Day10.txt")
 
     Day10().part1(testData)
     Day10().part2(testData)

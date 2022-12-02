@@ -23,7 +23,7 @@ public class Day4 {
     public static void main(String[] args) {
         Day4 day4 = new Day4();
 
-        List<String> fromFile = Utilities.getStringFromFile("2020/day4input.txt");
+        List<String> fromFile = Utilities.getStringFromFile("y2020/Day4.txt");
         List<Map<String, String>> passports = day4.parseFile(fromFile);
         int validPassports = day4.processPassports(passports);
 

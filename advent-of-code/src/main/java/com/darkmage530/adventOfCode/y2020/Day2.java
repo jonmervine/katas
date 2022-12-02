@@ -7,7 +7,7 @@ public class Day2 {
 
     public static void main(String[] args) {
         Day2 day2 = new Day2();
-        List<String> stringFromFile = Utilities.getStringFromFile("2020/day2input.txt");
+        List<String> stringFromFile = Utilities.getStringFromFile("y2020/Day2.txt");
 
         int correctPasswords = day2.countCorrectPasswords(stringFromFile);
         System.out.println("Correct Passwords: " + correctPasswords);

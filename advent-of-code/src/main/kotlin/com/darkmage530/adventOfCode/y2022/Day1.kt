@@ -1,8 +1,22 @@
 package com.darkmage530.adventOfCode.y2022
 
+import com.darkmage530.adventOfCode.AocBase
 import com.darkmage530.adventOfCode.getTestFileLines
 
-class Day1 {
+class Day1 : AocBase {
+//    override val testInputFile: String = ""
+    //
+//    private fun createInputFile =
+
+//    init {
+//        val filename =
+//        println(filename)
+
+//        println(this::class.qualifiedName)
+//
+//        println(this::class.java.`package`)
+//        println(this::class.java.packageName)
+//    }
 
     /**
      * List of Calories is broken with nulls indicating a new elf
@@ -23,26 +37,27 @@ class Day1 {
             acc
         }
 
-    fun part1(inputLines: List<String>) =
-        inputLines
+    override fun part1(input: List<String>) =
+        input
             .map { line -> line.toIntOrNull() }
             .sumElfCalories()
             .maxOrNull()!!
+            .toString()
 
-    fun part2(inputLines: List<String>) =
-        inputLines
+    override fun part2(input: List<String>): String =
+        input
             .map { line -> line.toIntOrNull() }
             .sumElfCalories()
             .sorted()
             .takeLast(3)
             .sum()
+            .toString()
 }
 
-const val y2022Day1 = "2022/Day1.txt"
 fun main() {
     Day1().apply {
-        println(part1(getTestFileLines(y2022Day1)))
-        println(part2(getTestFileLines(y2022Day1)))
+        println(part1(getTestFileLines(testFile())))
+        println(part2(getTestFileLines(testFile())))
     }
 }
 
