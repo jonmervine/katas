@@ -4,19 +4,6 @@ import com.darkmage530.adventOfCode.AocBase
 import com.darkmage530.adventOfCode.getTestFileLines
 
 class Day1 : AocBase {
-//    override val testInputFile: String = ""
-    //
-//    private fun createInputFile =
-
-//    init {
-//        val filename =
-//        println(filename)
-
-//        println(this::class.qualifiedName)
-//
-//        println(this::class.java.`package`)
-//        println(this::class.java.packageName)
-//    }
 
     /**
      * List of Calories is broken with nulls indicating a new elf
