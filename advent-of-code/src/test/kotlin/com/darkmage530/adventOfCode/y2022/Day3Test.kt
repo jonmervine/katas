@@ -20,6 +20,6 @@ CrZsJsPPZsGzwwsLwLmpwMDw"""
 
     "part2" {
         day3.part2(getTestInputLines(testInput))
-            .shouldBe("12")
+            .shouldBe("70")
     }
 })

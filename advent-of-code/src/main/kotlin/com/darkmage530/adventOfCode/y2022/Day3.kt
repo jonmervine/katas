@@ -26,7 +26,20 @@ class Day3 : AocBase {
     }.toString()
 
     override fun part2(input: List<String>): String {
-        TODO("Not yet implemented")
+        var acc = 0
+        for ((i, value) in input.withIndex()) {
+            if ((i + 1) % 3 == 0) {
+                val ascii = input[i - 2].chars().asSequence().toSet().intersect(
+                input[i - 1].chars().asSequence().toSet()).intersect(
+                value.chars().asSequence().toSet()).first()
+
+                acc += if (ascii < BETWEEN_CHAR_CASES)
+                    ascii - DIFFERENCE_OF_CHAR_FOR_UPPERCASE
+                else
+                    ascii - DIFFERENCE_OF_CHAR_FOR_LOWERCASE
+            }
+        }
+        return acc.toString()
     }
 }
 
