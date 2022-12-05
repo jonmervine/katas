@@ -3,6 +3,7 @@ package com.darkmage530.adventOfCode.y2022
 import com.darkmage530.adventOfCode.getTestInputLines
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import java.util.regex.Pattern
 
 class Day5Test : StringSpec({
     val day5 = Day5()
@@ -23,6 +24,6 @@ move 1 from 1 to 2"""
 
     "part2" {
         day5.part2(getTestInputLines(testInput))
-            .shouldBe("12")
+            .shouldBe("MCD")
     }
 })
