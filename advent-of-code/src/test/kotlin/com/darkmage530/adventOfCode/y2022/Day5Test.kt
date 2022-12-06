@@ -3,7 +3,6 @@ package com.darkmage530.adventOfCode.y2022
 import com.darkmage530.adventOfCode.getTestInputLines
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
-import java.util.regex.Pattern
 
 class Day5Test : StringSpec({
     val day5 = Day5()
